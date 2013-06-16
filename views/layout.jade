@@ -1,0 +1,16 @@
+doctype 5
+html(ng-app='caiMobile')
+  head
+    title= title
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css')
+    link(rel='stylesheet', href='stylesheets/style.css')
+  body
+    div.navbar.navbar-inverse.navbar-static-top
+      div.navbar-inner
+        div.text-center
+            h4 Contacts
+    block content
+    script(src='javascripts/angular.min.js')
+    script(src='javascripts/ui-bootstrap-0.3.0.min.js')
+    script(src='javascripts/app.js')
+    script(src='javascripts/controllers.js')
