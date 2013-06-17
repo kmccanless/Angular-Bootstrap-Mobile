@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="caiMobile">
+  <head>
+    <title>Angular-Bootstrap</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="navbar-inner">
+        <div class="text-center">
+          <h4>Contacts</h4>
+        </div>
+      </div>
+    </div>
+    <div ng-view></div>
+    <script id="contactList.html" type="text/ng-template">
+      <input type="text" class="search-query" placeholder="Search" ng-model="query" style='margin-top:10px;margin-bottom:10px'/>
+      <ul ng-repeat="contact in contacts | filter:query">
+         <li ng-click="getContactDetails(contact.email)">
+            <strong>{{contact.fullname}}</strong>
+            <div class='subtext'>{{contact.email}}</div>
+         </li>
+      </ul>
+    </script>
+    <script id="contactShow.html" type="text/ng-template">
+      <div class='well'>
+      <div>
+        <b>Full Name</b>
+      </div>
+      <div>
+        <p>{{contact.fullname}}</p>
+      </div>
+      <div>
+        <b>Email</b>
+      </div>
+      <div>
+        <a href='mailTo:{{contact.email}}'>{{contact.email}}</a>
+      </div>
+      <div>
+        <b>Phone</b>
+      </div>
+      <div>
+        <p>{{contact.phone}}</p>
+      </div>
+      </div>
+      <div style='text-align:center'>
+        <button type="button" class="btn btn-primary" ng-click="back()">Back</button>
+      </div>
+    </script>
+    <script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/ui-bootstrap-0.3.0.min.js"></script>
+    <script src="javascripts/app.js"></script>
+    <script src="javascripts/controllers.js"></script>
+  </body>
+</html>
